@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div align="center">
+    <h2>회원 등록</h2>
+    <hr>
+    <form method="post" th:action="@{/member/create}" th:object="${memberDTO}">
+        <table>
+            <tr>
+                <th>이름</th>
+                <td><input type="text" th:field="*{name}" />
+                    <span th:errors="*{name}" style="color: red"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td><input type="password" th:field="*{password}" />
+                    <span th:errors="*{password}" style="color: red"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td><input type="email" th:field="*{email}" />
+                    <span th:errors="*{email}" style="color: red"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>가입일</th>
+                <td><input type="date" th:field="*{regdate}" /></td>
+            </tr>
+            <tr>
+                <td/>
+                <td >
+                    <input type="submit" th:value="등록">
+                    <input type="reset" th:value="취소">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
